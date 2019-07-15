@@ -75,12 +75,12 @@ const Mutation = new GraphQLObjectType({
             },
             resolve(parent, args) {
                 let area = new Area({
-                    name: args.name
+                    areaName: args.areaName
                 });
                 return area.save();
             }
         },
-        addBook: {
+        addQuestion: {
             type: QuestionType,
             args: {
                 question: { type: new GraphQLNonNull(GraphQLString) },

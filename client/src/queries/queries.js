@@ -5,8 +5,24 @@ const getQuestionsQuery = gql`
         questions {
             question
             description
-            area
             id
+        }
+    }
+`;
+
+const getQuestionQuery = gql`
+    query($id: ID) {
+        question(id: $id) {
+            id
+            question
+            description
+            area {
+                areaName
+                questions {
+                    question
+                    id
+                }
+            }
         }
     }
 `;
@@ -14,7 +30,7 @@ const getQuestionsQuery = gql`
 const getAreasQuery = gql`
     {
         areas {
-            area
+            areaName
             id
         }
     }
@@ -25,10 +41,9 @@ const addQuestionMutation = gql`
         addQuestion(question: $question, description: $description, areaId: $areaId) {
             question
             description
-            area
             id
         }
     }
 `;
 
-export { getQuestionsQuery, getAreasQuery, addQuestionMutation };
+export { getQuestionsQuery, getQuestionQuery, getAreasQuery, addQuestionMutation };

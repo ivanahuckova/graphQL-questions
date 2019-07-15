@@ -3,7 +3,7 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
 // import components
-// import QuestionList from './components/QuestionList';
+import QuestionList from './components/QuestionList';
 import AddQuestion from './components/AddQuestion';
 
 // apollo client setup
@@ -16,7 +16,7 @@ function App() {
         <ApolloProvider client={client}>
             <div id="main">
                 <h1>Interview Questions:</h1>
-                {/* <QuestionList /> */}
+                <QuestionList />
                 <AddQuestion />
             </div>
         </ApolloProvider>
