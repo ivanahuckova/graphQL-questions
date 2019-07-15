@@ -1,9 +1,12 @@
 require('dotenv').config();
 const express = require('express');
-const graphqlHTTP = require('./schema/schema');
+const graphqlHTTP = require('express-graphql');
+const schema = require('./schema/schema');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 
 // connect to db
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
