@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { graphql, compose } from 'react-apollo';
-import { getAreasQuery, addQuestionMutation } from '../queries/queries';
+import { getAreasQuery, addQuestionMutation, getQuestionsQuery } from '../queries/queries';
 
 class AddQuestion extends Component {
     constructor(props) {
@@ -33,9 +33,11 @@ class AddQuestion extends Component {
                 question: this.state.question,
                 description: this.state.description,
                 areaId: this.state.areaId
-            }
+            },
+            refetchQueries: [{ query: getQuestionsQuery }]
         });
     };
+
     render() {
         return (
             <div>
